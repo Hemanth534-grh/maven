@@ -2,11 +2,11 @@ pipeline {
     agent any
 
     stages {
-        stage('git checkout') {
-            steps {
-                git branch: 'main', url: 'https://github.com/Hemanth534-grh/maven.git'
-            }
-        }
+        // stage('git checkout') {
+        //     steps {
+        //         git branch: 'main', url: 'https://github.com/Hemanth534-grh/maven.git'
+        //     }
+        // }
         stage('Maven Build') {
             steps {
                 sh 'mvn clean package'
