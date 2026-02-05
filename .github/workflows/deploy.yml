@@ -1,1 +1,28 @@
+name: Deploy App
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Step 1: Get the code
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      # Step 2: Install dependencies
+      - name: Install dependencies
+        run: npm install
+
+      # Step 3: Build the app
+      - name: Build app
+        run: npm run build
+
+      # Step 4: Deploy (example command)
+      - name: Deploy app
+        run: echo "App deployed successfully"
 
