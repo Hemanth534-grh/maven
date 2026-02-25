@@ -1,4 +1,4 @@
-name: Deploy App
+name: Deploy Hello World
 
 on:
   push:
@@ -10,19 +10,11 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      # Step 1: Get the code
-      - name: Checkout code
-        uses: actions/checkout@v3
+      - name: Checkout repository
+        uses: actions/checkout@v4
 
-      # Step 2: Install dependencies
-      - name: Install dependencies
-        run: npm install
-
-      # Step 3: Build the app
-      - name: Build app
-        run: npm run build
-
-      # Step 4: Deploy (example command)
-      - name: Deploy app
-        run: echo "App deployed successfully"
-
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: .
